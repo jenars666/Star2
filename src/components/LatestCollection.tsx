@@ -11,6 +11,7 @@ const latestProducts = [
   { id: 13, name: 'Poly Textured Oversized Shirt Lt Blue', img: 'https://images.unsplash.com/photo-1602810318383-e386cc2a3ccf?w=600&q=80', discount: '-44%', oldPrice: '889', price: '499' },
   { id: 14, name: 'Poly Textured Oversized Shirt Maroon', img: 'https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80', discount: '-44%', oldPrice: '499', price: '555' },
   { id: 15, name: 'Slim Fit Cotton Check Shirt Pink', img: 'https://images.unsplash.com/photo-1583743814966-8936f5b7be1a?w=600&q=80', discount: '-16%', oldPrice: '1,055', price: '889' },
+  { id: 16, name: 'Manamagan Premium Gold Silk Set', img: '/images/Manamagan/WhatsApp Image 2026-03-22 at 10.50.07 AM.jpeg', discount: '-25%', oldPrice: '2,200', price: '1,599' },
 ];
 
 export default function LatestCollection() {

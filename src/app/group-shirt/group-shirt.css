@@ -1,0 +1,209 @@
+.group-page-wrapper {
+  background-color: #ffffff;
+  font-family: var(--font-sans);
+  color: #1a1a1a;
+}
+
+.group-main-container {
+  padding: 4rem 1rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.group-content-grid {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr;
+  gap: 3rem;
+}
+
+.section-heading {
+  font-family: 'Oswald', var(--font-display), sans-serif;
+  font-size: 2.5rem;
+  font-weight: 800;
+  margin-bottom: 2rem;
+  text-transform: uppercase;
+  color: #000;
+}
+
+/* Form Styles */
+.enquiry-form-section {
+  background-color: #ffffff;
+}
+
+.form-row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+}
+
+.form-group.full-width {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  font-size: 0.85rem;
+  font-weight: 700;
+  color: #a88931; /* gold/yellow color matching image */
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.form-group input, 
+.form-group select, 
+.form-group textarea {
+  background-color: #f7f7f7;
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  font-size: 1rem;
+  color: #1a1a1a;
+  border-radius: 4px;
+  transition: border-color 0.2s;
+  font-family: var(--font-sans);
+}
+
+.form-group input:focus, 
+.form-group select:focus {
+  outline: none;
+  border-color: #ffc107;
+}
+
+.size-selector-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
+.size-btn {
+  background-color: #f7f7f7;
+  color: #666;
+  border: 1px solid #e0e0e0;
+  padding: 0.5rem 1rem;
+  min-width: 3rem;
+  font-weight: 600;
+  font-size: 0.9rem;
+  cursor: pointer;
+  border-radius: 4px;
+  transition: all 0.2s;
+}
+
+.size-btn:hover {
+  background-color: #ececec;
+  border-color: #ccc;
+}
+
+.size-btn.selected {
+  background-color: #ffc107;
+  color: #000;
+  border-color: #ffc107;
+}
+
+.whatsapp-enquire-btn {
+  width: 100%;
+  background-color: #ffc107;
+  color: #000;
+  border: none;
+  padding: 1.25rem;
+  font-family: 'Oswald', var(--font-display), sans-serif;
+  font-size: 1.25rem;
+  font-weight: 800;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 1rem;
+  border-radius: 4px;
+  transition: background-color 0.2s, transform 0.1s;
+}
+
+.whatsapp-enquire-btn:hover {
+  background-color: #e0a800;
+}
+
+.whatsapp-enquire-btn:active {
+  transform: scale(0.98);
+}
+
+/* Info Section Styles */
+.info-section {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.size-guide-container {
+  background-color: #f7f7f7;
+  padding: 2rem;
+  border-radius: 8px;
+}
+
+.size-guide-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.size-guide-table th {
+  text-align: left;
+  color: #a88931;
+  font-size: 0.85rem;
+  font-weight: 700;
+  padding-bottom: 1rem;
+  border-bottom: 2px solid #e0e0e0;
+  letter-spacing: 0.05em;
+}
+
+.size-guide-table td {
+  padding: 1rem 0;
+  border-bottom: 1px solid #e0e0e0;
+  color: #333;
+  font-size: 0.95rem;
+}
+
+.size-guide-table tr:last-child td {
+  border-bottom: none;
+}
+
+.kids-row td {
+  color: #888;
+}
+
+.special-banner {
+  background-color: #ffc107;
+  padding: 2rem;
+  border-radius: 8px;
+  color: #000;
+}
+
+.special-banner h3 {
+  font-family: 'Oswald', var(--font-display), sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  margin-bottom: 0.75rem;
+  text-transform: uppercase;
+}
+
+.special-banner p {
+  font-size: 0.95rem;
+  line-height: 1.5;
+  font-weight: 500;
+}
+
+/* Responsive */
+@media (max-width: 992px) {
+  .group-content-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 600px) {
+  .form-row {
+    grid-template-columns: 1fr;
+  }
+  .group-main-container {
+    padding: 2rem 1rem;
+  }
+}

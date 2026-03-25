@@ -1,6 +1,9 @@
 import type { Metadata } from "next";
 import "./globals.css";
-import AuthProvider from "../components/AuthProvider";
+import { CartProvider } from "../context/CartContext";
+import { WishlistProvider } from "../context/WishlistContext";
+import CartSidebar from "../components/CartSidebar";
+import { Toaster } from 'react-hot-toast';
 
 export const metadata: Metadata = {
   title: "Star Mens Park | Dindigul",
@@ -15,7 +18,13 @@ export default function RootLayout({
   return (
     <html lang="en" suppressHydrationWarning>
       <body suppressHydrationWarning>
-        <AuthProvider>{children}</AuthProvider>
+        <WishlistProvider>
+          <CartProvider>
+            <CartSidebar />
+            <Toaster position="bottom-right" toastOptions={{ duration: 4000 }} />
+            {children}
+          </CartProvider>
+        </WishlistProvider>
       </body>
     </html>
   );

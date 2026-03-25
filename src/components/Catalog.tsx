@@ -3,6 +3,7 @@
 import { motion } from 'framer-motion';
 import { generateWhatsAppLink, handleInstantCheckout } from '../utils/checkoutUtils';
 import { BarChart2, ExternalLink, ChevronLeft, ChevronRight } from 'lucide-react';
+import { useRouter } from 'next/navigation';
 import './Catalog.css';
 
 const circleCategories = [
@@ -64,6 +65,18 @@ const trendingProducts = [
 ];
 
 export default function Catalog() {
+  const router = useRouter();
+
+  const handleCategoryClick = (categoryName: string) => {
+    if (categoryName === 'Vesti &Shirt') {
+      router.push('/vesthi-shirt');
+    } else if (categoryName === 'GROUP SHIRT' || categoryName === 'Group Shirts') {
+      router.push('/group-shirt');
+    } else {
+      window.open(generateWhatsAppLink(categoryName, 1, 'M'), "_blank");
+    }
+  };
+
   return (
     <div className="catalog-wrapper">
       {/* Shop by Categories Section */}
@@ -87,9 +100,9 @@ export default function Catalog() {
                 <div
                   className="circle-image"
                   style={{ backgroundImage: `url(${cat.img})` }}
-                  onClick={() => window.open(generateWhatsAppLink(cat.name, 1, 'M'), "_blank")}
+                  onClick={() => handleCategoryClick(cat.name)}
                 />
-                <h3 className="circle-label">{cat.name}</h3>
+                <h3 className="circle-label" onClick={() => handleCategoryClick(cat.name)} style={{ cursor: 'pointer' }}>{cat.name}</h3>
               </motion.div>
             ))}
           </div>

@@ -1,39 +1,43 @@
 'use client';
 
 import Link from 'next/link';
-import { Menu, Tag } from 'lucide-react';
+import { Menu, Tag, X, ChevronDown } from 'lucide-react';
+import { useState } from 'react';
 import './Navbar.css';
 
 export default function Navbar() {
+  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
+
   return (
     <nav className="site-navbar">
       <div className="container nav-content">
-        <button className="nav-shop-btn">
-          <Menu size={20} />
+        <button className="nav-shop-btn" onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}>
+          {isMobileMenuOpen ? <X size={20} /> : <Menu size={20} />}
           SHOP BY CATEGORIES
         </button>
 
-        <ul className="nav-links">
-          <li><a href="#">NEW ARRIVALS</a></li>
-          <li><a href="#">TRENDING NOW</a></li>
-          <li><Link href="/vesthi-shirt">VESTHI&SHIRT</Link></li>
+        <ul className={`nav-links ${isMobileMenuOpen ? 'active' : ''}`}>
+          <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>NEW ARRIVALS</a></li>
+          <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>TRENDING NOW</a></li>
+          <li><Link href="/vesthi-shirt" onClick={() => setIsMobileMenuOpen(false)}>VESTHI&SHIRT</Link></li>
+          <li><Link href="/group-shirt" onClick={() => setIsMobileMenuOpen(false)}>GROUP SHIRT</Link></li>
           <li className="dropdown">
-            <a href="#">BOTTOMS <span className="dropdown-arrow">v</span></a>
+            <a href="#">BOTTOMS <ChevronDown size={14} className="dropdown-arrow" /></a>
             <ul className="dropdown-menu">
-              <li><a href="#">Jeans</a></li>
-              <li><a href="#">Chinos</a></li>
-              <li><a href="#">Joggers</a></li>
-              <li><a href="#">Cargos</a></li>
-              <li><a href="#">Shorts</a></li>
+              <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>Jeans</a></li>
+              <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>Chinos</a></li>
+              <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>Joggers</a></li>
+              <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>Cargos</a></li>
+              <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>Shorts</a></li>
             </ul>
           </li>
           <li className="dropdown">
-            <a href="#">SHIRTS <span className="dropdown-arrow">v</span></a>
+            <a href="#">SHIRTS <ChevronDown size={14} className="dropdown-arrow" /></a>
             <ul className="dropdown-menu">
-              <li><a href="#">Casual</a></li>
-              <li><a href="#">Formal</a></li>
-              <li><a href="#">Flannels</a></li>
-              <li><a href="#">Polos</a></li>
+              <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>Casual</a></li>
+              <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>Formal</a></li>
+              <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>Flannels</a></li>
+              <li><a href="#" onClick={() => setIsMobileMenuOpen(false)}>Polos</a></li>
             </ul>
           </li>
         </ul>

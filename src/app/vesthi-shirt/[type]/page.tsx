@@ -13,10 +13,11 @@ const collectionData = {
   premium: {
     title: 'Premium Vesthi & Shirts',
     desc: 'The gold standard of traditional wear. Made from high-grade silk and premium cotton for that royal look.',
-    heroImg: '/images/groupshirt.png',
+    heroImg: '/images/Manamagan/WhatsApp Image 2026-03-22 at 10.50.07 AM.jpeg',
     products: [
-      { id: 1, name: 'Royal Gold Silk Vesthi', price: '1,599', oldPrice: '2,200', img: '/images/groupshirt.png' },
-      { id: 2, name: 'Premium Executive White Shirt', price: '1,250', oldPrice: '1,800', img: '/images/group2.png' },
+      { id: 101, name: 'Manamagan Premium Gold Set', price: '1,599', oldPrice: '2,200', img: '/images/Manamagan/WhatsApp%20Image%202026-03-22%20at%2010.50.07%20AM%20%281%29.jpeg' },
+      { id: 102, name: 'Manamagan Royal Green Set', price: '1,599', oldPrice: '2,200', img: '/images/Manamagan/WhatsApp%20Image%202026-03-22%20at%2010.50.07%20AM.jpeg' },
+      { id: 103, name: 'Manamagan Premium Blue Set ', price: '1,599', oldPrice: '2,200', img: '/images/Manamagan/WhatsApp%20Image%202026-03-22%20at%2010.50.08%20AM.jpeg' },
     ]
   },
   tissue: {
@@ -28,12 +29,12 @@ const collectionData = {
       { id: 19, name: 'Mappillai Collection - Luxury Cream Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/WhatsApp%20Image%202026-03-22%20at%2010.49.05%20PM.jpeg' },
       { id: 20, name: 'Mappillai Collection - Elegant White Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/WhatsApp%20Image%202026-03-22%20at%2010.49.10%20PM.jpeg' },
       { id: 21, name: 'Mappillai Collection - Modern Fit Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/WhatsApp%20Image%202026-03-22%20at%2010.49.13%20PM.jpeg' },
-      { id: 22, name: 'Mappillai Collection - Prime Edition Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/WhatsApp%20Image%202026-03-22%20at%2010.49.14%20PM.jpeg' },
+      { id: 22, name: 'Mappillai Collection - Prime Edition Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/light gold.jpg' },
       { id: 23, name: 'Mappillai Collection - Classic White Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/WhatsApp%20Image%202026-03-22%20at%2010.49.16%20PM.jpeg' },
-      { id: 24, name: 'Mappillai Collection - Elite Collection Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/WhatsApp%20Image%202026-03-22%20at%2010.49.18%20PM.jpeg' },
-      { id: 25, name: 'Mappillai Collection - Heritage Series Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/WhatsApp%20Image%202026-03-22%20at%2010.49.20%20PM.jpeg' },
-      { id: 26, name: 'Mappillai Collection - Signature Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/WhatsApp%20Image%202026-03-22%20at%2010.49.23%20PM.jpeg' },
-      { id: 28, name: 'Mappillai Collection - Wedding Special Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/goold.jpg' },
+      { id: 24, name: 'Mappillai Collection - Elite Collection Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/elite.jpg' },
+      { id: 25, name: 'Mappillai Collection - Heritage Series Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/green.jpg' },
+      { id: 26, name: 'Mappillai Collection - Signature Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/silver.png' },
+      { id: 28, name: 'Mappillai Collection - Wedding Special Set', price: '1,150', oldPrice: '1,600', img: '/images/Mappillai/goold%20copy.jpg' },
     ]
   },
   classic: {
@@ -58,8 +59,14 @@ const collectionData = {
   }
 };
 
+import { useCart } from '../../../context/CartContext';
+import { useWishlist } from '../../../context/WishlistContext';
+
 export default function TypeCollectionPage() {
   const params = useParams();
+  const { addToCart } = useCart();
+  const { addToWishlist, removeFromWishlist, isInWishlist } = useWishlist();
+  
   const type = (params.type as string)?.toLowerCase() || 'classic';
   const data = collectionData[type as keyof typeof collectionData] || collectionData.classic;
 
@@ -105,30 +112,53 @@ export default function TypeCollectionPage() {
 
             <div className="product-grid">
               {data.products.map((product, idx) => (
-                <motion.div
-                  key={product.id}
-                  initial={{ opacity: 0, y: 30 }}
-                  whileInView={{ opacity: 1, y: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: idx * 0.1 }}
-                  className="v-product-card"
-                >
-                  <div className="v-product-image-box">
-                    <span className="v-discount-badge">-25%</span>
-                    <img src={product.img} alt={product.name} className="v-product-img-tag" />
-                    <div className="v-hover-actions">
-                      <button className="v-action-btn" title="Quick View"><ShoppingCart size={18} /></button>
-                      <button className="v-action-btn" title="Add to Wishlist"><Heart size={18} /></button>
+                <Link href={`/vesthi-shirt/product/${product.id}`} key={product.id} style={{ textDecoration: 'none', color: 'inherit' }}>
+                  <motion.div
+                    initial={{ opacity: 0, y: 30 }}
+                    whileInView={{ opacity: 1, y: 0 }}
+                    viewport={{ once: true }}
+                    transition={{ delay: idx * 0.1 }}
+                    className="v-product-card"
+                  >
+                    <div className="v-product-image-box">
+                      <span className="v-discount-badge">-25%</span>
+                      <img src={product.img} alt={product.name} className="v-product-img-tag" />
+                      <div className="v-hover-actions">
+                        <button 
+                          className="v-action-btn" 
+                          title="Add to Cart"
+                          onClick={(e) => {
+                            e.preventDefault();
+                            addToCart({ id: product.id, name: product.name, price: product.price, img: product.img, quantity: 1 });
+                          }}
+                        >
+                          <ShoppingCart size={18} />
+                        </button>
+                        <button 
+                          className="v-action-btn" 
+                          title={isInWishlist(product.id) ? "Remove from Wishlist" : "Add to Wishlist"}
+                          onClick={(e) => {
+                            e.preventDefault();
+                            if (isInWishlist(product.id)) {
+                              removeFromWishlist(product.id);
+                            } else {
+                              addToWishlist({ id: product.id, name: product.name, price: product.price, img: product.img });
+                            }
+                          }}
+                        >
+                          <Heart size={18} fill={isInWishlist(product.id) ? "currentColor" : "none"} color={isInWishlist(product.id) ? "#d32f2f" : "currentColor"} />
+                        </button>
+                      </div>
                     </div>
-                  </div>
-                  <div className="v-product-details">
-                    <h3 className="v-product-name">{product.name}</h3>
-                    <div className="v-product-price">
-                      <span className="v-old-price">₹{product.oldPrice}</span>
-                      <span className="v-new-price">₹{product.price}</span>
+                    <div className="v-product-details">
+                      <h3 className="v-product-name">{product.name}</h3>
+                      <div className="v-product-price">
+                        <span className="v-old-price">₹{product.oldPrice}</span>
+                        <span className="v-new-price">₹{product.price}</span>
+                      </div>
                     </div>
-                  </div>
-                </motion.div>
+                  </motion.div>
+                </Link>
               ))}
             </div>
           </div>

@@ -19,10 +19,10 @@ export default function Footer() {
             />
           </Link>
           <p className="footer-desc">
-            We offer a wide range of <strong>premium readymade garments</strong> designed with comfort, quality, and perfection in mind. Our collection includes <strong>exclusive group shirts</strong>, <strong>executive wear</strong>, <strong>premium denim</strong>, <strong>casuals</strong> and <strong>traditional</strong> styles that are perfect for everyday wear and massive special occasions.
+            We offer a wide range of <strong>premium readymade garments</strong> designed with comfort, quality, and style in mind. Our collection includes <strong>exclusive group shirts</strong>, <strong>branded shirts</strong>, <strong>ethnic wear</strong>, <strong>casual shirts</strong> and <strong>traditional</strong> styles perfect for everyday wear and festive occasions.
           </p>
           <p className="footer-desc">
-            Known as the finest in Dindigul Bazaar, we specialize in bulk orders featuring flawlessly fitting <strong>sizes from 22 to 5XL</strong>. Explore our unmatched collections of <strong>party wear</strong>, <strong>imported cotton shirts</strong>, <strong>formal trousers</strong>, and <strong>stylish hoodies</strong> tailored for a modern and confident look.
+            Known as the finest in Dindigul Bazaar, we specialize in bulk orders featuring flawlessly fitting <strong>sizes from 22 to 5XL</strong>. Explore our unmatched collections of <strong>festival shirts</strong>, <strong>vesti combos</strong>, <strong>formal trousers</strong>, and <strong>party wear</strong> tailored for the modern Dindigul man.
           </p>
         </div>
         
@@ -31,11 +31,11 @@ export default function Footer() {
           <h3 className="footer-heading">Delivery Network</h3>
           <ul>
             <li><a href="#">Dindigul (Main Store)</a></li>
-            <li><a href="#">Madurai</a></li>
-            <li><a href="#">Trichy</a></li>
             <li><a href="#">Karur</a></li>
-            <li><a href="#">Theni</a></li>
-            <li><a href="#">Coimbatore</a></li>
+            <li><a href="#">Madurai</a></li>
+            <li><a href="#">Tiruchirappalli</a></li>
+            <li><a href="#">Namakkal</a></li>
+            <li><a href="#">Erode</a></li>
           </ul>
         </div>
         
@@ -58,7 +58,7 @@ export default function Footer() {
           <ul className="support-list">
             <li>
               <MapPin size={16} className="support-icon" />
-              <span>Main Road, Near Sri Vellai Vinayagar Kovil,<br/>Dindigul Bazaar, Tamil Nadu 624001</span>
+              <span>St Mary's Building, 194, Main Road, Near Sri Vellai Vinayagar Kovil,<br/>Dindigul Bazaar, Tamil Nadu 624001</span>
             </li>
             <li>
               <Phone size={16} className="support-icon" />
@@ -66,7 +66,7 @@ export default function Footer() {
             </li>
             <li>
               <Mail size={16} className="support-icon" />
-              <span>support@starmenspark.in</span>
+              <span>starmenspark@gmail.com</span>
             </li>
           </ul>
         </div>

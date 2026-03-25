@@ -7,7 +7,7 @@
   font-family: var(--font-sans);
   font-size: clamp(2rem, 3vw, 2.5rem);
   font-weight: 600;
-  color: #222222;
+  color: #000000;
   margin-bottom: 4rem;
   letter-spacing: normal;
   text-transform: none;
@@ -50,7 +50,7 @@
   font-family: var(--font-sans);
   font-size: 0.95rem;
   line-height: 1.8;
-  color: #555555;
+  color: #000000;
   margin-bottom: 2.5rem;
   flex-grow: 1; /* allows author block to push to bottom if heights vary */
 }

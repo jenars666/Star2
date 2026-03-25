@@ -52,27 +52,36 @@
 }
 
 .vesthi-types {
-  padding: 5rem 0;
+  padding: clamp(3rem, 6vw, 5rem) 0;
   background-color: #f6f6f6;
 }
 
 .types-grid {
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  gap: 2rem;
-  margin-top: 3rem;
+  grid-template-columns: repeat(3, minmax(0, 250px));
+  justify-content: center;
+  gap: 1.5rem;
+  margin-top: 2.5rem;
   max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
 
+.type-card-link {
+  display: block;
+  width: 100%;
+}
+
 .type-card {
   position: relative;
-  height: 250px;
-  border-radius: 12px;
+  height: 320px;
+  border-radius: 16px;
   overflow: hidden;
   cursor: pointer;
   box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+  background-color: #fff;
+  width: 100%;
+  margin: 0;
 }
 
 .type-image {
@@ -82,13 +91,14 @@
   width: 100%;
   height: 100%;
   background-size: cover;
+  background-repeat: no-repeat;
   background-position: center;
   transition: transform 0.8s cubic-bezier(0.165, 0.84, 0.44, 1);
 }
 
-.silk-bg { background-image: url('/images/groupshirt.png'); }
-.cotton-bg { background-image: url('/images/group2.png'); }
-.wedding-bg { background-image: url('/images/groupshirt.png'); }
+.silk-bg { background-image: url('/images/Manamagan/WhatsApp Image 2026-03-22 at 10.50.07 AM.jpeg'); }
+.cotton-bg { background-image: url('/images/Mappillai/green.jpg'); }
+.wedding-bg { background-image: url('/images/Classic Matching Set/WhatsApp Image 2026-03-22 at 10.49.06 AM.jpeg'); }
 
 .type-card:hover .type-image {
   transform: scale(1.1);
@@ -101,21 +111,22 @@
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  padding: 2rem;
+  padding: clamp(1.1rem, 2.4vw, 1.75rem);
   color: #fff;
 }
 
 .type-overlay h3 {
   font-family: var(--font-display);
-  font-size: 1.8rem;
-  margin-bottom: 0.5rem;
+  font-size: clamp(1.55rem, 2.2vw, 2rem);
+  line-height: 0.95;
+  margin-bottom: 0.35rem;
   letter-spacing: 0.05em;
 }
 
 .type-overlay p {
-  font-size: 0.9rem;
+  font-size: clamp(0.78rem, 1.15vw, 0.92rem);
   opacity: 0.8;
-  letter-spacing: 0.1em;
+  letter-spacing: 0.08em;
   text-transform: uppercase;
   font-weight: 600;
 }
@@ -124,9 +135,9 @@
   color: #000000;
   text-align: center;
   margin-top: 0;
-  margin-bottom: 3rem;
+  margin-bottom: 1rem;
   font-family: var(--font-display);
-  font-size: 3rem;
+  font-size: clamp(2rem, 4.8vw, 3rem);
   font-weight: 700;
   text-transform: uppercase;
   letter-spacing: 0.05em;
@@ -138,69 +149,152 @@
 
 @media (max-width: 991px) {
   .types-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, minmax(0, 260px));
+    gap: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .type-card {
+    height: 320px;
+  }
+
+  .type-overlay {
+    padding: 1.25rem;
+  }
+
+  .type-overlay h3 {
+    font-size: 1.45rem;
+  }
+}
+
+@media (max-width: 640px) {
+  .vesthi-types {
+    padding: 3rem 0;
+  }
+
+  .types-grid {
+    grid-template-columns: minmax(0, 320px);
+    gap: 1.5rem;
+    margin-top: 1.5rem;
+    padding: 0 1rem;
+  }
+
+  .type-card {
+    height: 350px;
+  }
+
+  .type-overlay {
+    padding: 1.5rem;
+  }
+
+  .type-overlay h3 {
+    font-size: 1.4rem;
+  }
+
+  .type-overlay p {
+    font-size: 0.8rem;
+    letter-spacing: 0.08em;
+  }
+}
+
+@media (max-width: 420px) {
+  .vesthi-types .container {
+    padding-left: 1rem;
+    padding-right: 1rem;
+  }
+
+  .types-grid {
+    max-width: 100%;
+  }
+
+  .type-card {
+    height: 270px;
+    border-radius: 16px;
   }
 }
 
 .vesthi-hero {
-  height: 80vh;
+  height: clamp(600px, 92vh, 950px);
   display: flex;
   align-items: center;
   justify-content: flex-start;
   position: relative;
   overflow: hidden;
-  background-color: #0c0c0c;
+  background-color: #050505;
   color: #fff;
 }
 
 .vesthi-hero-content {
   flex: 1;
-  padding: 5rem 10% 2rem 10%;
+  padding: 0 5% 0 10%;
   z-index: 10;
+  position: relative;
+  max-width: 55%;
 }
 
 .hero-tag {
   display: inline-block;
   font-size: 0.8rem;
-  font-weight: 700;
+  font-weight: 500;
   text-transform: uppercase;
-  letter-spacing: 0.3em;
+  letter-spacing: 0.5em;
   color: #ffc107;
-  margin-bottom: 1.5rem;
+  margin-bottom: 2rem;
+  position: relative;
+  padding-left: 50px;
+}
+
+.hero-tag::before {
+  content: '';
+  position: absolute;
+  left: 0;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 1px;
+  background-color: #ffc107;
 }
 
 .hero-title {
-  font-family: var(--font-display);
-  font-size: clamp(3rem, 10vw, 6rem);
-  line-height: 0.9;
-  letter-spacing: -0.02em;
+  font-family: 'Oswald', var(--font-display), sans-serif;
+  font-size: clamp(3.5rem, 11vw, 8.5rem);
+  line-height: 0.85;
+  letter-spacing: 0.02em;
   font-weight: 800;
   text-transform: uppercase;
-  margin-bottom: 2rem;
+  margin-bottom: 1.5rem;
+  color: #ffffff;
+  text-shadow: 0 4px 20px rgba(0,0,0,0.8);
 }
 
 .hero-title span {
   color: #ffc107;
+  display: block;
+  margin-top: 0.1em;
 }
 
 .hero-desc {
+  font-family: var(--font-sans);
   font-size: 1.1rem;
+  font-weight: 300;
   line-height: 1.8;
-  max-width: 500px;
-  opacity: 0.8;
-  margin-top: 1rem;
+  max-width: 520px;
+  color: #e2e2e2;
+  margin-top: 1.5rem;
 }
 
 .vesthi-hero-image {
   flex: 1;
   height: 100%;
   background-image: url('/images/groupshirt.png');
-  background-size: cover;
-  background-position: center;
+  background-size: contain;
+  background-repeat: no-repeat;
+  background-position: right top;
   position: absolute;
   right: 0;
   top: 0;
-  width: 50%;
+  width: 100%;
+  z-index: 1;
 }
 
 .image-overlay {
@@ -209,7 +303,12 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background: linear-gradient(90deg, #0c0c0c 0%, transparent 100%);
+  background: linear-gradient(90deg, 
+    #050505 0%, 
+    #050505 35%, 
+    rgba(5,5,5,0.85) 50%, 
+    rgba(5,5,5,0.4) 70%, 
+    transparent 100%);
 }
 
 .collection-grid-section {
@@ -417,20 +516,29 @@
   .vesthi-hero {
     flex-direction: column;
     height: auto;
-    padding: 3rem 0;
+    padding: 0;
   }
   .vesthi-hero-content {
     padding: 4rem 2rem;
     text-align: center;
     order: 2;
+    max-width: 100%;
+    background-color: #050505;
+  }
+  .hero-tag {
+    padding-left: 0;
+    justify-content: center;
+  }
+  .hero-tag::before {
+    display: none;
   }
   .vesthi-hero-image {
-    position: static;
+    position: relative;
     width: 100%;
-    height: 400px;
+    height: 450px;
     order: 1;
   }
   .image-overlay {
-    background: linear-gradient(0deg, #0c0c0c 0%, transparent 100%);
+    background: linear-gradient(0deg, #050505 0%, transparent 100%);
   }
 }
